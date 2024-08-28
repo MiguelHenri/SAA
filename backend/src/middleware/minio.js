@@ -20,7 +20,7 @@ try {
         endPoint: process.env.MINIO_ENDPOINT,
         accessKey: process.env.MINIO_ACCESS_KEY,
         secretKey: process.env.MINIO_SECRET_KEY,
-        useSSL: false //TODO this obviously shouldn't be false in production.
+        useSSL: false // TODO this obviously shouldn't be false in production.
     });
     // Verifying connection
     await client.listBuckets();

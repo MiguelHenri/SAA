@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import '../config.js';
 
+// TODO: get rid of this admin create / edit logic. using a single superadmin.
+
 /**
  * Registers a new admin.
  * This function creates a new admin user with a unique username and a hashed password.

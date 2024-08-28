@@ -6,6 +6,8 @@ import * as path from "path";
 
 const imageFolderDir = './images/';
 
+// TODO: improve image logic. images stored into a directory will not work on PROD.
+
 // Finds the path of an existing file based on the section id, or null if no image is present.
 async function getImagePath(id) {
     const files = await fs.readdir(imageFolderDir);

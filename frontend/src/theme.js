@@ -3,7 +3,7 @@ import {createTheme} from "@mantine/core";
 export default createTheme({
     fontFamily: 'Karla, sans-serif',
 
-    //I have darkened the shadows to make them visible, but they might be too small.
+    // I have darkened the shadows to make them visible, but they might be too small.
     shadows: {
         xs: '0.5px 0.5px 3px rgba(0, 0, 0, .2)',
         sm: '2px 2px 3px rgba(0, 0, 0, .2)',
@@ -59,11 +59,5 @@ export default createTheme({
                 c: 'aprai-purple.8'
             }
         },
-        Button: {
-            //I think we should configure this with primary-color
-            // defaultProps: {
-            //     bg: 'aprai-purple.9'
-            // }
-        }
     }
 });

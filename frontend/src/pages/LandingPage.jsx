@@ -40,6 +40,7 @@ function LandingPage() {
     });
     if (contactInfoErr) console.error('Could not load contact info in landing page.', contactInfoErr);
 
+    // TODO: improve responsive design
     return (
         <>
             <EditableSectionText
@@ -69,7 +70,7 @@ function LandingPage() {
             
 
             <Title id='quemSomos' pt={"5rem"} pl={"1rem"} pr={"1rem"}>Quem Somos</Title>
-            <SimpleGrid /*Seção quem somos - TODO: add image*/
+            <SimpleGrid /*Seção Quem Somos */
                 cols={{ base: 1, sm: 1, md: 2, lg: 2 }}
                 pl={"1rem"}
                 pr={"1rem"}
@@ -78,7 +79,7 @@ function LandingPage() {
                 <EditableSectionImage section="sobreNos" radius="xl" h={400}/>
             </SimpleGrid>
 
-            <Center maw="100%" /*Seção plano sócio - TODO: add image*/  >  
+            <Center maw="100%" /*Seção Plano Sócio */  >  
                 <Stack align="center">
                     <Title id='descricaoPlano' pt={"5rem"} pl={"1rem"} pr={"1rem"}>Plano Sócio Colaborador APRAI 2024 </Title>         
                     <EditableSectionText section="planoSocio" inputContainerStyle={{height: "380px", width: "100%"}} textClassName={classes.paragraphText}/>
@@ -135,7 +136,6 @@ function LandingPage() {
             </Center>
 
             {/*Seção Contato*/}
-            {/*TODO: Extract styles into classes, and get rid of Space abuse*/}
             <SimpleGrid
                 my="xl"
                 cols={{ base: 1, sm: 1, md: 2, lg: 2 }}
