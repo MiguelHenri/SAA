@@ -1,10 +1,4 @@
 import { TextInput, PasswordInput } from '@mantine/core';
-import { useViewportSize } from '@mantine/hooks';
-
-function getWidth() {
-    const { width } = useViewportSize();
-    return width;
-}
 
 /**
  * A Colored Input Bar component, for text or password input.
@@ -14,13 +8,12 @@ function getWidth() {
  * @returns {JSX.Element} The ColoredInputBars component.
  */
 function ColoredInputBars({placeholder, type="text", ...others}){
-    const s = getWidth() < 575 ? 'sm' : 'lg';
 
     const props = {
         classNames: { input: 'custom-input', innerInput: 'custom-input' },
         placeholder: placeholder,
-        size: s,
-        w: { base: 150, xs: 250 },
+        size: 'lg',
+        w: '250px',
         variant: "filled",
         radius: "xl",
         styles: {

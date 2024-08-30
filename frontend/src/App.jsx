@@ -1,4 +1,4 @@
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -17,7 +17,7 @@ import Donations from "./pages/adm/Donations.jsx";
 if (import.meta.env.VITE_BACKEND_URL)
     axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 else
-    console.error("No AXIOS Url for connection!")
+    console.error("No AXIOS Url for connection!");
 
 function App() {
     return (
@@ -52,4 +52,4 @@ function App() {
     );
 }
 
-export default App
+export default App;

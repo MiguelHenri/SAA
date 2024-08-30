@@ -51,27 +51,18 @@ function Login() {
     }
 
     return (
-        <Center h="100%">
-            <Stack>
-            { error &&
-            <Paper pos='relative' w={{ base: 180, xs: 280 }} radius='md' align='center' p='sm' bg="red" fw={700}>
-                <Text>
-                    {error}
-                </Text>
-            </Paper>}
+        <Center h='100%'>
             <Paper
-                mih={{ base: 230, xs: 375 }}
-                w={{ base: 180, xs: 280 }}
+                h='350px'
+                w='280px'
                 bg="aprai-purple.9"
                 p={{ base: 'xs', xs: 'md' }}
                 radius="xl"
                 >
-                <Text ta="center"  fz={{base: "30px", xs: "40px"}} c='white' mb='lg'>
+                <Text ta="center" fz='30px' c='white'>
                     Login
                 </Text> 
-
-                <Stack align='center' justify='center' gap={'xs'} component={'form'} onSubmit={form.onSubmit(onSubmit)}>
-                    
+                <Stack p='20px' align='center' justify='center' component={'form'} onSubmit={form.onSubmit(onSubmit)}>
                     <ColoredInputBars 
                         placeholder = "Usuário"
                         {...form.getInputProps('user')}
@@ -81,23 +72,26 @@ function Login() {
                         type='password'
                         {...form.getInputProps('password')}    
                     />
-
-                    <Button 
-                        mt={{base: 'xs', xs: 'xl'}}
+                    <Button
+                        mt='20px'
                         justify='center'
                         variant='white'
-                        h={{ base: 30, xs: 50 }}
-                        w={{ base: 80, xs: 200 }}
-                        fz={{ base: 13, xs: 20 }}
+                        h='50px'
+                        w='200px'
+                        fz='20px'
                         radius='lg'
                         type='submit'
                         loading={loading}
                     >
                         Entrar
                     </Button>
+                    {error && (
+                        <Text c='red'>
+                            {error}
+                        </Text>
+                    )}
                 </Stack>
             </Paper>
-            </Stack>
         </Center>
   );
 }

@@ -6,8 +6,4 @@
 .custom-input::placeholder {  
     color: #392F88;
     font-size: 20px;
-  
-    @media (min-width: 575px){
-      font-size: 25px;
-    }
 }
