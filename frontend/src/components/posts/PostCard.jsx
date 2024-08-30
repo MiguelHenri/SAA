@@ -46,7 +46,7 @@ export function PostCard({post, h, w, light=false, showDate=true, imgHPct=0.6, .
                     </Text>
                 }
                 <Title order={4} lineClamp={2} c={textColor}>{title}</Title>
-                <Text c={textColor} lineClamp={lineCount} dangerouslySetInnerHTML={{__html: content}}/>
+                <Text c={textColor} lineClamp={lineCount} dangerouslySetInnerHTML={{__html: content}} mt='-10px'/>
             </Card.Section>
         </Card>
     )

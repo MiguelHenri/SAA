@@ -3,7 +3,7 @@ import {createPost, getPosts, getPost, updatePost, deletePost} from "../controll
 import {uploadImageMiddleware} from "../middleware/minio.js";
 
 const router = express.Router();
-router.post('/',  uploadImageMiddleware, createPost);
+router.post('/', uploadImageMiddleware, createPost);
 router.get('/', getPosts);
 router.get('/:id', getPost);
 router.put('/:id', uploadImageMiddleware, updatePost);

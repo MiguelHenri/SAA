@@ -17,7 +17,7 @@ function MenuButton ({link, text, ...others}) {
                 variant='filled'
                 h='60px'
                 fz='20px'
-                w={{ base:'300px', sm: '500px', md: '600px', lg: '700px', xl: '700px'}}
+                w={{ base:'280px', xs:'400px', sm: '500px', md: '600px'}}
                 radius='md'
                 component={HashLink}
                 to={link}

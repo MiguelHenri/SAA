@@ -15,12 +15,11 @@ function AdmMenu() {
     } 
 
     return(
-        <Stack align='center' h='100%' justify='center' gap='xl'>
-            <Text>Olá, {userName}!</Text>
-            <MenuButton
-                link='/admin/gerenciarcadastro'
-                text='Gerenciar Administradores'
-            />
+        <>
+        <Text ta='center' fz='18px'>
+            Olá, {userName}!
+        </Text>
+        <Stack align='center' justify='center' p='20px'>
             <MenuButton
                 link='/blog'
                 text='Gerenciar Postagens'
@@ -42,10 +41,9 @@ function AdmMenu() {
                 text='Sair'
                 bg='red'
                 onClick={logOut}
-            >
-
-            </MenuButton>
+            />
         </Stack>
+        </>
     );
 }
 

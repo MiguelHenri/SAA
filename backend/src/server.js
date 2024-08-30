@@ -7,7 +7,6 @@ import infoTexts from "./routes/infoTexts.js";
 import contactInfos from "./routes/contactInfos.js";
 import adminLogin from "./routes/adminLogin.js";
 import cookieParser from 'cookie-parser';
-import admins from "./routes/admins.js";
 import auth from "./routes/auth.js";
 import sectionImages from "./routes/sectionImages.js";
 import posts from "./routes/posts.js";
@@ -32,11 +31,11 @@ app.get('/api/donations*', authMidd);
 app.use('/api/infoTexts', infoTexts);
 app.use('/api/contactInfos', contactInfos);
 app.use('/admins/login', adminLogin);
-app.use('/api/admins', authMidd, admins);
 app.use('/api/sectionImages', sectionImages);
 app.use('/api/posts', posts);
 app.use('/api/auth', auth);
-app.use('/api/donations', donations)
+app.use('/api/donations', donations);
+
 // Serve static files
 app.use('/images', express.static('images'), );
 

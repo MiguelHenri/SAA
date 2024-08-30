@@ -109,7 +109,7 @@ function DonationTable() {
                 <Table.Thead>
                     <Table.Tr>
                         <Table.Th>Data</Table.Th>
-                        <Table.Th>Quantidade</Table.Th>
+                        <Table.Th>Quantidade (kg)</Table.Th>
                         <Table.Th>Tipo</Table.Th>
                         <Table.Th>Origem/Destino</Table.Th>
                         <Table.Th>Recebido/Enviado</Table.Th>

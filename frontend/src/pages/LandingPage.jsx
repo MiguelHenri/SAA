@@ -160,7 +160,7 @@ function LandingPage() {
                         Redes Sociais
                     </Text>
                     <Anchor ta="center" size="lg" fw={500} href={contactInfo.facebook}>
-                        Facebook: Aprai Indaiatuba
+                        Facebook: APRAI
                     </Anchor>
                     <Anchor ta="center" size="lg" fw={500} href={`https://www.instagram.com/${contactInfo.instagram}`}>
                         Instagram: {contactInfo.instagram}

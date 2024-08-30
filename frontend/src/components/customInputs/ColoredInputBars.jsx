@@ -17,7 +17,7 @@ function ColoredInputBars({placeholder, type="text", ...others}){
     const s = getWidth() < 575 ? 'sm' : 'lg';
 
     const props = {
-        classNames: { input: 'custom-input' ,innerInput: 'custom-input' },
+        classNames: { input: 'custom-input', innerInput: 'custom-input' },
         placeholder: placeholder,
         size: s,
         w: { base: 150, xs: 250 },
@@ -25,7 +25,7 @@ function ColoredInputBars({placeholder, type="text", ...others}){
         radius: "xl",
         styles: {
             input: { 
-                backgroundColor: '#A9ABC9' 
+                backgroundColor: '#A9ABC9',
             },
         },
         ...others

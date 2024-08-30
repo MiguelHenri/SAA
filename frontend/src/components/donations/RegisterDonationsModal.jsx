@@ -48,11 +48,11 @@ function RegisterDonationsModal({ onDonationCreated }) {
     return (
         <Stack component='form' onSubmit={form.onSubmit(onSubmit)}>
             <LoadingOverlay visible={loading} />
-            <DateInput valueFormat="YYYY MMM DD" label="Data" placeholder="" {...form.getInputProps('date')} />
-            <TextInput label="Quantidade" placeholder='' {...form.getInputProps('amount')} />
-            <TextInput label="Tipo" placeholder='' {...form.getInputProps('type')} />
-            <TextInput label="Origem/Destino" placeholder='' {...form.getInputProps('srcDest')} />
-            <Select label="Enviado/Recebido" placeholder="" data={['enviado', 'recebido']} {...form.getInputProps('flow')} />
+            <DateInput valueFormat="YYYY MMM DD" label="Data" placeholder='YYYY MMM DD' {...form.getInputProps('date')} />
+            <TextInput label="Quantidade (kg)" placeholder='10' {...form.getInputProps('amount')} />
+            <TextInput label="Tipo" placeholder='Ração de Cachorro' {...form.getInputProps('type')} />
+            <TextInput label="Origem/Destino" placeholder='Fulano' {...form.getInputProps('srcDest')} />
+            <Select label="Enviado/Recebido" placeholder='-' data={['Enviado', 'Recebido']} {...form.getInputProps('flow')} />
             <Button fullWidth type='submit' mt="md">
                 Criar
             </Button>
