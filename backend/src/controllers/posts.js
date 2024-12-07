@@ -1,6 +1,5 @@
 import Post from "../models/Post.js";
 import mongoose from "mongoose";
-import {deleteImage} from "../middleware/minio.js";
 
 /**
  * Creates a new post in the database.
@@ -79,9 +78,9 @@ export async function updatePost(req, res) {
         }
 
         //Delete old image
-        if (updates.imageUrl && post.imageUrl && updates.imageUrl !== post.imageUrl){
-            await deleteImage(post.imageUrl);
-        }
+        // if (updates.imageUrl && post.imageUrl && updates.imageUrl !== post.imageUrl){
+        //     await deleteImage(post.imageUrl);
+        // }
         await Post.findByIdAndUpdate(id, updates, {new: true, runValidators: true});
         return res.status(200).send({id});
     } catch (e) {
@@ -115,9 +114,9 @@ export async function deletePost(req, res) {
         }
 
         //Deletar a imagem
-        if (post.imageUrl){
-            await deleteImage(post.imageUrl);
-        }
+        // if (post.imageUrl){
+        //     await deleteImage(post.imageUrl);
+        // }
         await post.deleteOne();
         return res.status(200).send({message: 'O Post foi deletado'});
 

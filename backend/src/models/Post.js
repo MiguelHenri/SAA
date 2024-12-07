@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import sanitizeHtml from "sanitize-html"
-import {deleteImage} from "../middleware/minio.js";
+import sanitizeHtml from "sanitize-html";
 
 /**
  * A MongoDB schema for representing blog/bazaar posts.
