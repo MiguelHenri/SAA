@@ -34,7 +34,11 @@ function EditableImage({url, onSave, ...others}){
                     }
                 </FileButton>
             </ProtectedComponent>
-            <Image crossOrigin={"anonymous"} src={file ? URL.createObjectURL(file) : url} {...others}/>
+            <Image 
+                crossOrigin={"anonymous"}
+                src={file ? URL.createObjectURL(file) : url}
+                {...others}
+            />
             {editing &&
                 <Group pos="absolute">
                     <Button onClick={() => onSave(file, endEditing)}>Salvar</Button>

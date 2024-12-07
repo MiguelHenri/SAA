@@ -68,12 +68,12 @@ function LandingPage() {
             </SimpleGrid>
             
 
-            <Title id='quemSomos' pt={"5rem"}>Quem Somos</Title>
+            <Title id='quemSomos' pt='xl'>Quem Somos</Title>
             <SimpleGrid /*Seção Quem Somos */
                 cols={{ base: 1, sm: 1, md: 2, lg: 2 }}
             >
                 <EditableSectionText section="sobreNos" inputContainerStyle={{height: "380px", width: "100%"}} textClassName={classes.paragraphText}/>
-                <EditableSectionImage section="sobreNos" radius="xl" h={400}/>
+                <EditableSectionImage section="sobreNos" radius="xl" h='auto'/>
             </SimpleGrid>
 
             <Center maw="100%" /*Seção Plano Sócio */  >  
@@ -167,7 +167,7 @@ function LandingPage() {
                     </Anchor>
                 </Stack>
                 <div>
-                    <EditableSectionImage section="contactInfo" radius="xl" h={370}/>
+                    <EditableSectionImage section="contactInfo" radius="xl" h='350px'/>
                 </div>
             </SimpleGrid>
         </>
