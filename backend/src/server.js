@@ -12,7 +12,10 @@ import sectionImages from "./routes/sectionImages.js";
 import posts from "./routes/posts.js";
 import donations from "./routes/donations.js"
 import authMidd from "./middleware/auth.js";
+import path from 'path';
 import './config.js'
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 // Using express
 const app = express();
@@ -43,9 +46,9 @@ app.use('/api/donations', donations);
 app.use('/images', express.static('images'), );
 
 // Serve frontend
-app.use(express.static('../frontend/dist'));
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 app.get('*', (req, res) => {
-    res.sendFile('../frontend/dist/index.html');
+    res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));
 });
 
 const server = http.createServer(app);
