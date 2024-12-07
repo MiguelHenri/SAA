@@ -17,9 +17,12 @@ import './config.js'
 // Using express
 const app = express();
 app.use(helmet());
-app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
 app.use(cookieParser());
+
+// CORS
+const frontEndUrl = process.env.MY_URL;
+app.use(cors({origin: frontEndUrl, credentials: true}));
 
 // Auth middleware 
 app.post('/api/*', authMidd);
