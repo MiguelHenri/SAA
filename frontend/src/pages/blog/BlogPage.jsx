@@ -30,10 +30,10 @@ function BlogPage() {
     return (
       <>
           <Group m='sm'>
-              <Title>Blog</Title>
-              <ProtectedComponent>
-                  <Button component={HashLink} to={'/admin/blog/'}>Criar</Button>
-              </ProtectedComponent>
+                <Title>Blog</Title>
+                <ProtectedComponent>
+                    <Button component={HashLink} to={'/admin/blog/'}>Criar</Button>
+                </ProtectedComponent>
           </Group>
           <PostGrid data={pages[currentPage - 1]} containerWidth={width}/>
           <Center>

@@ -74,15 +74,18 @@ function BlogPost() {
                     <Button w={100} onClick={handleDeleteClicked} bg='red'>Excluir</Button>
                 </ProtectedComponent>
             </Group>
-            {post.date?.toLocaleDateString &&
+            {post.date && !isNaN(new Date(post.date)) && (
                 <Text c="aprai-purple.9">
-                    {post.date.toLocaleDateString('pt-BR', 
-                        { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                    {new Date(post.date).toLocaleDateString(
+                        'pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }
+                    )}
                 </Text>
+            )}
+            {post.imageUrl && 
+                <Center>
+                    <Image m="md" w={{lg: 350, md:300, sm: 250, base: 200}} radius="xl" src={post.imageUrl} />
+                </Center>
             }
-            <Center>
-                <Image m="md" w={{lg: 350, md:300, sm: 250, base: 200}} radius="xl" src={post.imageUrl} />
-            </Center>
             <Text 
                 ml={{base: "5%", sm: "10%"}} 
                 mr={{base: "5%", sm: "10%"}} 
