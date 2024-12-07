@@ -44,6 +44,9 @@ app.use('/images', express.static('images'), );
 
 // Serve frontend
 app.use(express.static('../frontend/dist'));
+app.get('*', (req, res) => {
+    res.sendFile('../frontend/dist/index.html');
+});
 
 const server = http.createServer(app);
 
