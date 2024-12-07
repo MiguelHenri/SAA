@@ -51,7 +51,7 @@ function LandingPage() {
 
             <SimpleGrid w="100%" cols={{base: 1, sm: 2}} spacing={{base: 'xs', sm: 'lg'}} mt="md" mb="xl">
                 <FlipCard
-                    h={{lg: 350, md:300, sm: 250, base: 200}}
+                    h={{lg: 350, md:300, sm: 250, base: 250}}
                     textFront="Ajude-nos a ajudar."
                     editableFrontTextSection="cardDoacaoFront"
                     textBack="Informações da Doação"
@@ -59,7 +59,7 @@ function LandingPage() {
                     buttonText="DOE AGORA."
                     editableImageSection="cardDoacao"/>
                 <FlipCard
-                    h={{lg: 350, md:300, sm: 250, base: 200}}
+                    h={{lg: 350, md:300, sm: 250, base: 250}}
                     textFront="Presenciou situações de maus tratos? Não hesite:"
                     editableFrontTextSection="cardDenunciaFront"
                     editableBackTextSection="cardDenuncia"

@@ -30,52 +30,92 @@ function FlipCard({buttonText, normalizedImgW = .5, style = {},
 
     return (
         <ReactCardFlip isFlipped={isFlipped}>
-            <Paper style={{overflow: "hidden", ...style}} radius="lg" withBorder bg="aprai-purple.3" pl={0} pr="sm" {...others}>
-                <SimpleGrid {...others} cols={2}>
-                    <Box {...others}>
-                        {
-                            editableImageSection
-                                ? <EditableSectionImage section={editableImageSection}
-                                                        alt={imageAlt}
-                                                        {...others}/>
-                                : <Image src={image}
-                                         alt={imageAlt}
-                                         h="100%"/>
+            <Paper 
+                style={{overflow: "hidden", ...style}}
+                radius="lg" 
+                withBorder 
+                bg="aprai-purple.3" 
+                pl={0} 
+                pr="sm" 
+                {...others}
+            >
+                <SimpleGrid cols={2}>
+                    <Box>
+                        {editableImageSection ? 
+                            <EditableSectionImage 
+                                section={editableImageSection}
+                                alt={imageAlt}
+                                {...others}
+                            />
+                            : 
+                            <Image 
+                                src={image}
+                                alt={imageAlt}
+                                h="100%"
+                            />
                         }
                     </Box>
                     <Stack justify='flex-center'>
                         <Space style={{flex:1}}/>
-                        {
-                            editableFrontTextSection
-                                ? <EditableSectionText section={editableFrontTextSection} textClassName={classes.cardText}/>
-                                : <Text ta='center' c='black' fz="xl">{textFront}</Text>
-
+                        {editableFrontTextSection ?
+                            <EditableSectionText 
+                                section={editableFrontTextSection}
+                                textClassName={classes.cardText}
+                                containerStyle={{margin: 0, padding: 0}}
+                            />
+                            : 
+                            <Text ta='center' c='black' fz="xl">
+                                {textFront}
+                            </Text>
                         }
-                        <Button w={"100%"} h={40} bg='aprai-purple.5' onClick={toggle} radius="lg" fz="xl">{buttonText}</Button>
+                        <Button 
+                            w={"100%"}
+                            h={40}
+                            bg='aprai-purple.5'
+                            onClick={toggle}
+                            radius="lg"
+                            fz="xl"
+                            m={0} p={0}
+                        >
+                            {buttonText}
+                        </Button>
                         <Space style={{flex:1}}/>
                     </Stack>
                 </SimpleGrid>
             </Paper>
 
-            <Paper style={{overflow: "hidden", ...style}} radius="lg" withBorder bg="aprai-purple.3" pt="xs" pl="xs" pr="xs" {...others}>
+            <Paper 
+                style={{overflow: "hidden", ...style}}
+                radius="lg"
+                withBorder
+                bg="aprai-purple.3"
+                pt="xs"
+                pl="xs"
+                pr="xs"
+                {...others}
+            >
                  <Center h={"100%"}>
-                     {
-                         editableBackTextSection
-                             ? <EditableSectionText h={"80%"} section={editableBackTextSection}
-                                                    textClassName={classes.cardText}
-                                                    inputContainerStyle={{
-                                                        height: "80%",
-                                                        width: "100%",
-                                                    }}
-                                                    textContainerStyle={{
-                                                        height: "100%",
-                                                        width: "100%",
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                        justifyContent: "center"
-                                                    }}
-                             />
-                             : <Text className={classes.cardText}>{textBack}</Text>
+                     {editableBackTextSection ? 
+                        <EditableSectionText 
+                            h={"80%"} 
+                            section={editableBackTextSection}
+                            textClassName={classes.cardText}
+                            inputContainerStyle={{
+                                height: "80%",
+                                width: "100%",
+                            }}
+                            textContainerStyle={{
+                                height: "100%",
+                                width: "100%",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center"
+                            }}
+                        />
+                        : 
+                        <Text className={classes.cardText}>
+                            {textBack}
+                        </Text>
                      }
                  </Center>
             </Paper>
