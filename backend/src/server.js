@@ -39,6 +39,9 @@ app.use('/api/donations', donations);
 // Serve static files
 app.use('/images', express.static('images'), );
 
+// Serve frontend
+app.use(express.static('../frontend/dist'));
+
 const server = http.createServer(app);
 
 // Connecting to database
