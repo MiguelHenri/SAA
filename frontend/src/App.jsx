@@ -44,7 +44,7 @@ function App() {
                 <Route path="bazar/:id?" element={<EditBlogPost/>}/>
 
                 <Route path="editarcontato" element={<EditContact/>}/>
-               <Route path="registrardoacoes" element={<Donations/>}/>
+                <Route path="registrardoacoes" element={<Donations/>}/>
             </Route>
 
         </Routes>

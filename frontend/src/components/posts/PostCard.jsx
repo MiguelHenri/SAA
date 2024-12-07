@@ -12,7 +12,7 @@ import {HashLink} from "react-router-hash-link";
  * @param {number} imgHPct - The height percentage of the image relative to the card height. Default: 0.6.
  * @returns {JSX.Element} The PostCard component.
  */
-export function PostCard({post, h, w, light=false, showDate=true, imgHPct=0.6, ...others}) {
+export function PostCard({post, h, w, showDate=true, imgHPct=0.6, ...others}) {
     const {isBlog, title, content, imageUrl} = post;
     
     const route = isBlog ? 'blog' : 'bazar';
@@ -22,13 +22,14 @@ export function PostCard({post, h, w, light=false, showDate=true, imgHPct=0.6, .
     if (showDate) textH -= 10;
     const lineCount = Math.floor(textH / 32);
 
-    const bgColor = light ? "aprai-purple.3" : "aprai-purple.9";
-    const textColor = light ? "aprai-purple.9" : "white";
+    const bgColor = "aprai-purple.1";
+    const textColor = "aprai-purple.9";
     return (
         <Card
             radius={0} shadow={"md"}
             h={h} w={w}
             bg={bgColor}
+            withBorder
             {...others}
             component={HashLink} to={`/${route}/${post._id}`}
         >
@@ -40,13 +41,18 @@ export function PostCard({post, h, w, light=false, showDate=true, imgHPct=0.6, .
 
             <Card.Section p='sm' pt={imageUrl ? 0 : 'sm'}>
                 {showDate && post.date &&
-                    <Text size='xs' c={textColor}>
+                    <Text size='xs' ml='2px' mb='2px' c={textColor}>
                         {new Date(post.date).toLocaleDateString('pt-BR', 
                             { day: '2-digit', month: '2-digit', year: 'numeric' })}
                     </Text>
                 }
                 <Title order={4} lineClamp={2} c={textColor}>{title}</Title>
-                <Text c={textColor} lineClamp={lineCount} dangerouslySetInnerHTML={{__html: content}} mt='-10px'/>
+                <Text 
+                    c={textColor}
+                    lineClamp={lineCount}
+                    dangerouslySetInnerHTML={{__html: content}}
+                    mt='-10px'
+                />
             </Card.Section>
         </Card>
     )

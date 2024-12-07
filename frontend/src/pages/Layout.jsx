@@ -16,7 +16,7 @@ function Layout() {
             <Banner/>
             <Header/>
 
-            <Box p='md' style={{flex:1}}>
+            <Box p='5px' style={{flex:1}}>
                 <Outlet/>
             </Box>
 

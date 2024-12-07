@@ -147,7 +147,7 @@ function EditBlogPost() {
                     maxLength={128}
                     {...form.getInputProps('title')}
                 />
-                <div>
+                <Group gap='sm'>
                     <Button type="submit"
                             className={classes.customButton}
                             disabled={!form.values.content || !form.values.title}
@@ -156,7 +156,7 @@ function EditBlogPost() {
                     </Button>
 
                     <Button bg='red' className={classes.customButton} onClick={onCancel}>Cancelar</Button>
-                </div>
+                </Group>
             </Group>
 
             <RichTextEditor editor={editor} m="md" mih={600}>

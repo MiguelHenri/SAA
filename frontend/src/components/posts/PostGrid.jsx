@@ -18,13 +18,18 @@ function PostGrid({data = [], containerWidth}){
     const cardWidth = isMobile ? 272 : 352;
     const cardHeight = isMobile ? 272 : 272;
     const cards = data.map((post, index) => (
-        <PostCard key={index} post={post} h={cardHeight} radius='xl' light={true} imgHPct={0.5}/>
+        <PostCard key={index} post={post} h={cardHeight} radius='xl' imgHPct={0.5}/>
     ));
 
     const cardSpacing = 10;
     const colCount = Math.floor(containerWidth / (cardWidth + cardSpacing));
     return (
-        <SimpleGrid cols={colCount} spacing={cardSpacing} verticalSpacing={{base: 'sm', sm: 'md'}}>
+        <SimpleGrid 
+            cols={colCount}
+            spacing={cardSpacing}
+            verticalSpacing={{base: 'sm', sm: 'md'}}
+            px='xs'
+        >
             {cards}
         </SimpleGrid>
     );

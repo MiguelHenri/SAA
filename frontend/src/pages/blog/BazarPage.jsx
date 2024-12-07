@@ -28,8 +28,8 @@ function BazarPage() {
     const pages = [...yieldPages(posts, cardsPerPage)];
     return (
       <>
-          <Group>
-              <Title mb='sm'>Bazar</Title>
+          <Group m='sm'>
+              <Title>Bazar</Title>
               <ProtectedComponent>
                   <Button component={HashLink} to={'/admin/bazar/'}>Criar</Button>
               </ProtectedComponent>

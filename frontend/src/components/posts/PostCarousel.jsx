@@ -13,9 +13,15 @@ import useFetch from "../../hooks/useFetch.jsx";
  * @param {object} cardData The dimensions of each card in the carousel. Default: {h: 100, w: 100}.
  * @returns {JSX.Element} The PostCarousel component.
  */
-function PostCarousel({slideGap = {base: "xs", sm: "md"}, cardData = {h: 100, w: 100}, ...others}){
+function PostCarousel({
+    slideGap = {base: "xs", sm: "md"}, 
+    cardData = {h: 100, w: 100}, 
+    ...others
+}){
     const theme = useMantineTheme();
     const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+    const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.lg})`);
+
     const {result: posts} = useFetch('api/posts', {
         defaultValue: []
     });
@@ -24,25 +30,27 @@ function PostCarousel({slideGap = {base: "xs", sm: "md"}, cardData = {h: 100, w:
         return (
             //The slide is slightly bigger than the card to ensure it doesn't crop shadows
             <CarouselSlide key={i} h={1.05 * cardData.h}>
-                <Center>
+                <Center mt='lg'>
                     <PostCard post={data} showDate={false} {...cardData}/>
                 </Center>
-            </CarouselSlide>)
+            </CarouselSlide>
+        )
     })
 
     const caretProps = {
         color: theme.colors['aprai-purple'][9],
-        size: isMobile ? 60 : 90,
-        // style:{stroke: "white"},
+        size: 30,
     };
+
     return (
         <Carousel
             classNames={classes}
             styles={{control: {backgroundColor: 'transparent', border: 0, boxShadow: 'none'}}}
-            slideSize={isMobile ? '100%' : '33.33333%'}
-            slideGap={isMobile ? 0 : slideGap}
+            slideSize={isMobile ? '100%' : isTablet? '50%' : '33.33333%'}
+            slideGap={slideGap}
             align={isMobile ? 'center' : 'start'}
-            nextControlIcon={<IconCaretRightFilled  {...caretProps}/>}
+            withControls={!isMobile}
+            nextControlIcon={<IconCaretRightFilled {...caretProps}/>}
             previousControlIcon={<IconCaretLeftFilled {...caretProps}/>}
             {...others}
         >

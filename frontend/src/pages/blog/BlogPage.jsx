@@ -29,8 +29,8 @@ function BlogPage() {
     
     return (
       <>
-          <Group>
-              <Title mb='sm'>Blog</Title>
+          <Group m='sm'>
+              <Title>Blog</Title>
               <ProtectedComponent>
                   <Button component={HashLink} to={'/admin/blog/'}>Criar</Button>
               </ProtectedComponent>

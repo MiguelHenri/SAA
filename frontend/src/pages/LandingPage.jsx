@@ -56,9 +56,8 @@ function LandingPage() {
                     editableFrontTextSection="cardDoacaoFront"
                     textBack="Informações da Doação"
                     editableBackTextSection="cardDoacao"
-                    buttonText="DOE AGORA"
+                    buttonText="DOE AGORA."
                     editableImageSection="cardDoacao"/>
-
                 <FlipCard
                     h={{lg: 350, md:300, sm: 250, base: 200}}
                     textFront="Presenciou situações de maus tratos? Não hesite:"
@@ -69,11 +68,9 @@ function LandingPage() {
             </SimpleGrid>
             
 
-            <Title id='quemSomos' pt={"5rem"} pl={"1rem"} pr={"1rem"}>Quem Somos</Title>
+            <Title id='quemSomos' pt={"5rem"}>Quem Somos</Title>
             <SimpleGrid /*Seção Quem Somos */
                 cols={{ base: 1, sm: 1, md: 2, lg: 2 }}
-                pl={"1rem"}
-                pr={"1rem"}
             >
                 <EditableSectionText section="sobreNos" inputContainerStyle={{height: "380px", width: "100%"}} textClassName={classes.paragraphText}/>
                 <EditableSectionImage section="sobreNos" radius="xl" h={400}/>
@@ -87,9 +84,12 @@ function LandingPage() {
             </Center>   
 
 
-            <Paper h={{base: 400, sm: 500}} w="100%" bg="aprai-purple.3" my="xl" p={{base: "xs", sm: "md"}} radius="xl">
-                <Title ta="center" mb={'md'}>Últimas Notícias</Title>
-                <PostCarousel px={{base: "md", sm: "100"}} cardData={{h: 300, w: {base: 200, xs: 350}}}/>
+            <Paper h={{base: 400, xs: 450, sm: 500}} w="100%" bg="aprai-purple.3" my="xl" py='sm' radius="xl">
+                <Title ta="center" my={'md'}>Últimas Notícias</Title>
+                <PostCarousel 
+                    px={{base: "md", sm: "100"}} 
+                    cardData={{h: {base: 260, xs: 290 ,sm: 320}, w: {base: 260, xs: 300, sm: 350}}}
+                />
             </Paper>
 
             <Center my="xl">
