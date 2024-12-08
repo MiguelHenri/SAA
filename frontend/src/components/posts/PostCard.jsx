@@ -17,11 +17,6 @@ export function PostCard({post, h, w, showDate=true, imgHPct=0.6, ...others}) {
     
     const route = isBlog ? 'blog' : 'bazar';
 
-    let textH = h - 20;
-    if (imageUrl) textH -= imgHPct * h;
-    if (showDate) textH -= 10;
-    const lineCount = Math.floor(textH / 32);
-
     const bgColor = "aprai-purple.1";
     const textColor = "aprai-purple.9";
     return (
@@ -29,7 +24,6 @@ export function PostCard({post, h, w, showDate=true, imgHPct=0.6, ...others}) {
             radius={0} shadow={"md"}
             h={h} w={w}
             bg={bgColor}
-            withBorder
             {...others}
             component={HashLink} to={`/${route}/${post._id}`}
         >
@@ -41,15 +35,17 @@ export function PostCard({post, h, w, showDate=true, imgHPct=0.6, ...others}) {
 
             <Card.Section p='sm' pt={imageUrl ? 0 : 'sm'}>
                 {showDate && post.date &&
-                    <Text size='xs' ml='2px' mb='2px' c={textColor}>
+                    <Text size='xs' ml='2px' c={textColor}>
                         {new Date(post.date).toLocaleDateString('pt-BR', 
                             { day: '2-digit', month: '2-digit', year: 'numeric' })}
                     </Text>
                 }
-                <Title order={4} lineClamp={2} c={textColor}>{title}</Title>
+                <Title order={4} lineClamp={1} c={textColor} mt='3px'>
+                    {title}
+                </Title>
                 <Text 
                     c={textColor}
-                    lineClamp={lineCount}
+                    lineClamp={3}
                     dangerouslySetInnerHTML={{__html: content}}
                     mt='-10px'
                 />
