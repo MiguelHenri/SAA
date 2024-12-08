@@ -76,6 +76,8 @@ export const uploadImage = (req, res, next) => {
 };
 
 export const deleteImage = async (imageKey) => {
+    if (!imageKey) return;
+
     const params = {
         Bucket: bucket,
         Key: imageKey,

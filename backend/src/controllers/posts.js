@@ -79,7 +79,7 @@ export async function updatePost(req, res) {
         }
 
         // Delete old image
-        if (updates.imageKey !== post.imageKey){
+        if (post.imageKey && updates.imageKey !== post.imageKey){
             await deleteImage(post.imageKey);
         }
         await Post.findByIdAndUpdate(id, updates, {new: true, runValidators: true});
