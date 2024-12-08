@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
             res => res,
                 err => {
                 if (err.response?.data?.invalidToken){
-                    console.log("Auth error, clearing token.")
+                    console.log("Auth error, clearing token.");
                     clearAuth();
                 }
                 throw err;

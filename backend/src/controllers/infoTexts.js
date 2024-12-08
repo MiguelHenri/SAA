@@ -1,5 +1,4 @@
 import {promises as fs} from "fs";
-import '../config.js'
 
 const fileDir = 'infoTexts.json';
 
@@ -17,7 +16,7 @@ export async function getInfoText(req, res) {
             ? res.status(200).json({text: info[req.params.id]})
             : res.status(404).send({message: 'Texto não encontrado.'});
     } catch (e) {
-        console.log('Unhandled error when getting info texts:', e);
+        console.error('Unhandled error when getting info texts:', e);
         return res.status(500).send({message: "Erro ao tentar encontrar texto."});
     }
 }
@@ -37,7 +36,7 @@ export async function setInfoText(req, res) {
         await fs.writeFile(fileDir, json, {encoding: "utf8"});
         return res.status(200).send({message: 'Texto atualizado.'});
     } catch (e) {
-        console.log('Unhandled error when updating info texs:', e);
+        console.error('Unhandled error when updating info texs:', e);
         return res.status(500).send({message: "Erro ao tentar atualizar texto."});
     }
 }

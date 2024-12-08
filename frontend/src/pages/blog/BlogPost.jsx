@@ -64,7 +64,7 @@ function BlogPost() {
             }
         });
     }
-    
+
     return (
         <>
             <Group>

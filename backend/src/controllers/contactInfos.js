@@ -16,7 +16,7 @@ export async function getContactInfo(req, res) {
         const info = JSON.parse(infoJson);
         return res.status(200).send(info);
     } catch (e) {
-        console.log(e)
+        console.error(e)
         return res.status(500).send({message: "Não foi possível encontrar a informação de contato."});
     }
 }
@@ -45,7 +45,7 @@ export async function setContactInfo(req, res) {
             const errors = Object.values(e.errors).map(e => ({[e.path]: e.message}));
             return res.status(400).send({validationErrors: Object.assign({}, ...errors)});
         }
-        console.log('Unhandled error when setting contact info.', e);
+        console.error('Unhandled error when setting contact info.', e);
         return res.status(500).send({message: "Erro de servidor ao salvar informação de contato."});
     }
 }

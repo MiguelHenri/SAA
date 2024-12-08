@@ -1,5 +1,4 @@
 import {promises as fs} from "fs";
-import '../config.js'
 import * as url from "url";
 import multer from 'multer';
 import * as path from "path";
@@ -40,7 +39,7 @@ export async function getImage(req, res) {
         });
         return res.status(200).send({imageUrl: imageUrl});
     } catch (e) {
-        console.log('Unhandled error when getting image:', e);
+        console.error('Unhandled error when getting image:', e);
         return res.status(500).send({message: "Erro ao tentar encontrar imagem."});
     }
 }
@@ -84,7 +83,7 @@ export async function setImage(req, res) {
                         res.status(400).send({message: 'Extensão de imagem inválida.'});
                         break;
                     default:
-                        console.log('Unhandled error during Multer upload.', err);
+                        console.error('Unhandled error during Multer upload.', err);
                         res.status(500).send({message: "Erro ao tentar atualizar imagem."});
                         break;
                 }

@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import mongoose from "mongoose";
+import { deleteImage } from "../middleware/aws.js";
 
 /**
  * Creates a new post in the database.
@@ -52,7 +53,7 @@ export async function getPost(req, res) {
             ? res.status(200).send(post)
             : res.status(404).send({message: 'Post não existente'});
     } catch (e) {
-        console.log(e);
+        console.error(e);
         return res.status(400).json({ e: e.message });
     }
 }
@@ -77,10 +78,10 @@ export async function updatePost(req, res) {
             return res.status(404).send({message: 'Post não foi encontrado.'});
         }
 
-        //Delete old image
-        // if (updates.imageUrl && post.imageUrl && updates.imageUrl !== post.imageUrl){
-        //     await deleteImage(post.imageUrl);
-        // }
+        // Delete old image
+        if (updates.imageKey !== post.imageKey){
+            await deleteImage(post.imageKey);
+        }
         await Post.findByIdAndUpdate(id, updates, {new: true, runValidators: true});
         return res.status(200).send({id});
     } catch (e) {
@@ -104,7 +105,6 @@ export async function deletePost(req, res) {
         const { id } = req.params;
 
         if(!mongoose.Types.ObjectId.isValid(id)) {
-            console.log("id não encontrado");
             return res.status(400).send({message: 'ID do post é inválido.'});
         }
 
@@ -113,15 +113,15 @@ export async function deletePost(req, res) {
             return res.status(404).send({message: 'Post não foi encontrado.'});
         }
 
-        //Deletar a imagem
-        // if (post.imageUrl){
-        //     await deleteImage(post.imageUrl);
-        // }
+        // Delete old image
+        if (post.imageKey){
+            await deleteImage(post.imageKey);
+        }
         await post.deleteOne();
         return res.status(200).send({message: 'O Post foi deletado'});
 
     } catch (e) {
-        if (e instanceof moongose.Error.ValidationError) {
+        if (e instanceof mongoose.Error.ValidationError) {
             const errors = Object.values(e.errors).map(e => ({[e.path]: e.message}));
             return res.status(400).send({validationErrors: Object.assign({}, ...errors)});
         }

@@ -13,7 +13,7 @@ import posts from "./routes/posts.js";
 import donations from "./routes/donations.js"
 import authMidd from "./middleware/auth.js";
 import path from 'path';
-import './config.js'
+import './s3-client.js';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -26,15 +26,30 @@ app.use(cookieParser());
 // CORS
 const allowedOrigins = process.env.CORS_ALLOWED_ORIGINS?.split(',');
 app.use(cors({
-  origin: (origin, callback) => {
+    origin: (origin, callback) => {
         if (allowedOrigins?.includes(origin) || !origin) {
-        callback(null, true);
+            callback(null, true);
         } else {
-        callback(new Error('Not allowed by CORS'));
+            callback(new Error('Not allowed by CORS'));
         }
     },
     credentials: true
 }));
+
+const s3_url = `https://${process.env.AWS_S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com`
+
+// CSP
+app.use((req, res, next) => {
+    res.setHeader(
+        'Content-Security-Policy', 
+        "default-src 'self'; " +  // Permite conteúdo do mesmo domínio
+        `img-src 'self' ${s3_url}; ` + // Permite imagens do próprio domínio e do S3
+        "script-src 'self' 'unsafe-eval'; " +  // Permite scripts do próprio domínio e inline scripts
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " + // Permite estilos do próprio domínio, inline e Google Fonts
+        "font-src 'self' https://fonts.gstatic.com;" // Permite fontes do Google Fonts
+    );
+    next();
+});
 
 // Auth middleware 
 app.post('/api/*', authMidd);

@@ -103,7 +103,6 @@ export async function deleteDonation(req, res) {
         const { id } = req.params;
 
         if(!mongoose.Types.ObjectId.isValid(id)) {
-            console.log("id não é válido");
             return res.status(400).send({message: 'ID do post é inválido.'});
         }
 

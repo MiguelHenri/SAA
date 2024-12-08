@@ -27,6 +27,7 @@ const schema = new mongoose.Schema({
         required: true
     },
     imageUrl: String,
+    imageKey: String,
     content: {
         type: String,
         required: true,
