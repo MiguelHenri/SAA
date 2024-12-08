@@ -40,7 +40,14 @@ Crie um arquivo **.env** no diretório `/backend/` com os seguintes valores:
 PORT= #Escolha um port para hospedar o backend. Ex: 8080
 DB_URI= #Valor secreto
 BCRYPT_SALT_ROUNDS= #Valor secreto
-JWT_SECRET= #Valor secret
+JWT_SECRET= #Valor secreto
+CORS_ALLOWED_ORIGINS= #Url do frontend
+
+# Variáveis necessárias apenas para a AWS
+AWS_REGION= #Regiao da S3
+AWS_ACCESS_KEY_ID= #Chave da S3
+AWS_SECRET_ACCESS_KEY= #Chave privada da S3
+AWS_S3_BUCKET= #Nome do bucket da S3
 ```
 
 Em seguida podemos hospedar o backend. Abra uma instância de terminal no diretório `/backend/`. Execute o comando `npm install` para garantir que os pacotes necessários estão instalados. Execute o comando `npm start` para hospedar o backend na porta escolhida. Aguarde as mensagens de confirmação no terminal.
@@ -48,9 +55,19 @@ Em seguida podemos hospedar o backend. Abra uma instância de terminal no diret�
 ### Frontend
 Crie um arquivo **.env** no diretório `/frontend/` com os seguintes valores:
 ```
-VITE_BACKEND_URL= Insira o url do backend. Ex: http://localhost:8080
+VITE_BACKEND_URL= #Url do backend. Ex: http://localhost:8080
 ```
 
-Em seguida, podemos hospedar o frontend. Abra uma instância de terminal na pasta */frontend/*. Execute o comando `npm install` para garantir que os pacotes necessários estão instalados. Execute o comando `npm run dev` para hospedar o frontend na porta 5173.
+Em seguida, podemos hospedar o frontend. Abra uma instância de terminal na pasta `/frontend/`. Execute o comando `npm install` para garantir que os pacotes necessários estão instalados. Execute o comando `npm run dev` para hospedar o frontend na porta 5173.
 
-Agora é possível acessar a página na url **http://localhost:5173**.
+### Produção
+
+No diretório principal, basta buildar a aplicação:
+```
+npm run install-and-build
+```
+
+Em seguida rodar:
+```
+npm start
+```
